@@ -32,9 +32,9 @@ function calcular() {
     const cantidadApostar4 = (dineroApostar * probabilidad4) / sumaProbabilidades;
 
     // Mostrar el resultado en un banner
-    
-    
-    
+
+
+
     resultadoBanner.appendChild(alertDiv);
     if (sumaProbabilidades >= 1) {
         alertDiv.classList.add('alert', 'alert-danger');
@@ -44,7 +44,18 @@ function calcular() {
         const ganancias = (1 - sumaProbabilidades) * dineroApostar;
         alertDiv.classList.add('alert', 'alert-secondary');
         alertDiv.setAttribute('role', 'alert');
-        alertDiv.innerHTML = `Debes apostar  €${cantidadApostar1.toFixed(2)} en la cuota 1,  €${cantidadApostar2.toFixed(2)} en la cuota 2,  €${cantidadApostar3.toFixed(2)} en la cuota 3, y  €${cantidadApostar4.toFixed(2)} en la cuota 4 para tener una oportunidad de ganar. Las ganancias van a ser de €${ganancias.toFixed(2)}`;
+        //alertDiv.innerHTML = `Debes apostar: <br> €${cantidadApostar1.toFixed(2)} en la cuota 1 <br>  €${cantidadApostar2.toFixed(2)} en la cuota 2 <br>  €${cantidadApostar3.toFixed(2)} en la cuota 3 <br> €${cantidadApostar4.toFixed(2)} en la cuota 4 <br> para tener una oportunidad de ganar. <br> Las ganancias van a ser de €${ganancias.toFixed(2)}`;
+        alertDiv.innerHTML = 
+        `
+        <div>Debes apostar: </div>
+        <ul>
+            <li>€${cantidadApostar1.toFixed(2)} en la cuota 1</li>
+            <li>€${cantidadApostar2.toFixed(2)} en la cuota 2</li>
+            <li>€${cantidadApostar3.toFixed(2)} en la cuota 3</li>
+            <li>€${cantidadApostar4.toFixed(2)} en la cuota 4</li>
+        </ul>
+        <div>Las ganancias van a ser de €${ganancias.toFixed(2)}</div>
+        `;
     }
 
 

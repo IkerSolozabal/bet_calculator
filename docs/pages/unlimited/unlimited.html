@@ -4,46 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Unlimited</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="best3_tenis.css">
+    <link rel="stylesheet" href="unlimited.css">
     <link rel="stylesheet" href="../../style.css">
 </head>
 
 <body>
+
     <form>
         <div class="mb-3">
-            <label for="cuota1" class="form-label">Cuota 1:</label>
-            <input type="text" class="form-control" id="cuota1" required>
-        </div>
-        <div class="mb-3">
-            <label for="cuota2" class="form-label">Cuota 2:</label>
-            <input type="text" class="form-control" id="cuota2" required>
-        </div>
-        <div class="mb-3">
-            <label for="cuota3" class="form-label">Cuota 3:</label>
-            <input type="text" class="form-control" id="cuota3" required>
-        </div>
-        <div class="mb-3">
-            <label for="cuota4" class="form-label">Cuota 4:</label>
-            <input type="text" class="form-control" id="cuota4" required>
+            <label for="cuotas" class="form-label">Introducir cuotas separadas por '-'. Ejemplo (2.5-9.7-2.7)</label>
+            <input type="text" class="form-control" id="cuotas" required>
         </div>
         <div class="mb-3">
             <label for="dineroApostar" class="form-label">Dinero a Apostar:</label>
             <input type="text" id="dineroApostar" class="form-control" required>
         </div>
-        <input type="button" onclick="calcular()" class="btn btn-primary" value="Calcular">
+        <input type="button" onclick="calcular_apuesta()" class="btn btn-primary" value="Calcular">
     </form>
 
-    <div id="resultado">
+    <div id="resultado_unlimited">
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script src="best3_tenis.js"></script>
+    <script src="unlimited.js"></script>
 </body>
 
 </html>
