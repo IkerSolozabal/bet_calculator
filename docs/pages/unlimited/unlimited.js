@@ -42,7 +42,7 @@ function calcular_apuesta() {
         alertDiv.setAttribute('role', 'alert');
         alertDiv.innerHTML = `Debes apostar las siguientes cantidades en cada cuota:<br>`;
         for (let i = 0; i < cuotasArray.length; i++) {
-            alertDiv.innerHTML += `Cuota ${i + 1} (${cuotas[2*i]}): $${cantidadesApostar[i].toFixed(2)}<br>`;
+            alertDiv.innerHTML += `Cuota ${i + 1} (${cuotas[2*i]}): €${cantidadesApostar[i].toFixed(2)}<br>`;
         }
     }
 }
