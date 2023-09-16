@@ -31,7 +31,8 @@ function calcular_apuesta() {
     if (sumaProbabilidades >= 1) {
         alertDiv.classList.add('alert', 'alert-danger');
         alertDiv.setAttribute('role', 'alert');
-        alertDiv.innerHTML = `No hay oportunidad de ganancias. La suma de las probabilidades es mayor o igual a 1.`;
+        alertDiv.innerHTML = `No hay oportunidad de ganancias. La suma de las probabilidades es mayor o igual a 1. <br>`;
+        alertDiv.innerHTML += `La probabilidad es: ${sumaProbabilidades}`;
     } else {
         const ganancias = (1 - sumaProbabilidades) * dineroApostar;
         alertDiv.classList.add('alert', 'alert-secondary');
