@@ -5,35 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-    <title>Calculadora de Apuestas</title>
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="pages/index/css/index.css">
+    <link rel="stylesheet" href="resources/theme/theme.css">
+    <title>Bet calculator</title>
 </head>
 
-<body>
-    <h1>Calculadora de Apuestas</h1>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Tenis</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Al mejor de 3 sets</h6>
-            <p class="card-text">Encuentra si es posible apostar a resultado exacto y obtener ganancia</p>
-            <a href="pages/tenis/best3_tenis.html" class="card-link">Go</a>
-        </div>
+<body class="background">
+<header class="on-background-text display-large text-center">
+    <h1>Calculadora de cuotas</h1>
+</header>
+
+<div class="on-background-text container p-2">
+    <div class="row">
+        <select class="form-select" aria-label="Default select example" id="tipoApostador"
+                onchange="mostrarFormulario()">
+            <option selected>Elegir tipo de calculadora</option>
+            <option value="1">Cantidad total</option>
+            <option value="2">Cantidad a una cuota especifica</option>
+        </select>
     </div>
 
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Unlimited</h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary">Elige el numero de cuotas</h6>
-            <p class="card-text">Encuentra si es posible apostar indicando el numero de cuotas</p>
-            <a href="pages/unlimited/unlimited.html" class="card-link">Go</a>
-        </div>
-    </div>
+</div>
 
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+<div id="formularioCantidadTotal" class="on-background-text" style="display: none;">
+    <form>
+        <div class="mb-3">
+            <input type="text" placeholder="Cuotas separadas por espacios" class="form-control" id="cuotasCantidadTotal"
+                   required>
+        </div>
+        <div class="mb-3">
+            <input type="text" placeholder="Dinero total a apostar" id="dineroApostarTotal" class="form-control"
+                   required>
+        </div>
+        <input type="button" onclick="calcular_apuesta_cantidad_total()" class="btn btn-primary" value="Calcular">
+    </form>
+</div>
+
+<div id="formularioCuotaEspecifica" class="on-background-text" style="display: none;">
+    <form>
+        <div class="mb-3">
+            <input type="text" placeholder="Cuotas separadas por espacios" class="form-control" id="cuotasCantidadEspecifica"
+                   required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="container">
+                <div class="row">
+                    <input class="col-xs-12 col-sm-12 col-md-6" type="text"
+                           placeholder="Dinero a Apostar (Cuota Específica)" id="dineroApostarCuotaEspecifica"
+                           class="form-control" required>
+                    <input class="col-xs-12 col-sm-12 col-md-6" type="text" class="form-control" placeholder="Cuota"
+                           aria-label="cuotaEspecifica" id="cuotaEspecifica">
+                </div>
+            </div>
+
+        </div>
+        <input type="button" onclick="calcular_apuesta_cuota_especifica()" class="btn btn-primary" value="Calcular">
+    </form>
+</div>
+
+<div id="resultado" class="m-3">
+
+</div>
+
+<script src="pages/index/js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </body>
