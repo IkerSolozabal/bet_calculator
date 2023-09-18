@@ -4,10 +4,10 @@ Una calculadora para conocer si es posible obtener ganancias en base a cuotas de
 
 Se ofrecen 2 tipos de calculadora:
 
-1. Tenis mejor de 3 sets
+1. Dinero total a apostar
 
-Donde se deben incluir las cuotas a resultado exacto, es decir las cuotas correspondientes a (2-0, 2-1, 0-2, 1-2)
+Donde se deben incluir las cuotas separadas por espacios, dinero total a apostar entre todas las cuotas
 
-1. Numero de cuotas indefinidas
+2. Dinero a cuota especifica
 
-Donde se deben incluir las cuotas separadas por espacios.
+Donde se deben incluir las cuotas separadas por espacios. Y se indica el dinero a invertir en una cuota especifica, dando como resultado, la cantidad a invertir en las demas cuotas asi como el total
