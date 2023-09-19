@@ -13,60 +13,64 @@
     <title>Bet calculator</title>
 </head>
 
-<body class="background">
+<body class="background  on-background-text">
 <header class="on-background-text display-large text-center">
     <h1>Calculadora de cuotas</h1>
 </header>
 
-<div class="on-background-text container p-2">
-    <div class="row">
-        <select class="form-select" aria-label="Default select example" id="tipoApostador"
-                onchange="mostrarFormulario()">
-            <option selected>Elegir tipo de calculadora</option>
-            <option value="1">Cantidad total</option>
-            <option value="2">Cantidad a una cuota especifica</option>
-        </select>
+<div class="mb-3 container">
+    <select class="form-select" aria-label="Default select example" id="tipoApuesta"
+            onchange="mostrarFormulario()">
+        <option selected>Elegir tipo de calculadora</option>
+        <option value="1">Cantidad total</option>
+        <option value="2">Cantidad a una cuota especifica</option>
+    </select>
+</div>
+
+<div class="container mb-3">
+    <div id="formularioCantidadTotal" class="on-background-text" style="display: none;">
+        <form>
+            <div class="mb-3">
+                <input type="text" placeholder="Cuotas separadas por espacios" class="form-control"
+                       id="cuotasCantidadTotal"
+                       required>
+            </div>
+            <div class="mb-3">
+                <input type="text" placeholder="Dinero total a apostar" id="dineroApostarTotal" class="form-control"
+                       required>
+            </div>
+            <input type="button" onclick="calcular_apuesta_cantidad_total()" class="btn btn-primary" value="Calcular">
+        </form>
     </div>
 
-</div>
-
-<div id="formularioCantidadTotal" class="on-background-text" style="display: none;">
-    <form>
-        <div class="mb-3">
-            <input type="text" placeholder="Cuotas separadas por espacios" class="form-control" id="cuotasCantidadTotal"
-                   required>
-        </div>
-        <div class="mb-3">
-            <input type="text" placeholder="Dinero total a apostar" id="dineroApostarTotal" class="form-control"
-                   required>
-        </div>
-        <input type="button" onclick="calcular_apuesta_cantidad_total()" class="btn btn-primary" value="Calcular">
-    </form>
-</div>
-
-<div id="formularioCuotaEspecifica" class="on-background-text" style="display: none;">
-    <form>
-        <div class="mb-3">
-            <input type="text" placeholder="Cuotas separadas por espacios" class="form-control" id="cuotasCantidadEspecifica"
-                   required>
-        </div>
-        <div class="input-group mb-3">
+    <div id="formularioCuotaEspecifica" class="on-background-text" style="display: none;">
+        <form>
+            <div class="mb-3">
+                <input type="text" placeholder="Cuotas separadas por espacios" class="form-control"
+                       id="cuotasCantidadEspecifica"
+                       required>
+            </div>
             <div class="container">
                 <div class="row">
-                    <input class="col-xs-12 col-sm-12 col-md-6" type="text"
-                           placeholder="Dinero a Apostar (Cuota Específica)" id="dineroApostarCuotaEspecifica"
-                           class="form-control" required>
-                    <input class="col-xs-12 col-sm-12 col-md-6" type="text" class="form-control" placeholder="Cuota"
-                           aria-label="cuotaEspecifica" id="cuotaEspecifica">
+                    <div class="mb-3 p-0 pe-md-1 col-xs-12 col-md-6">
+                        <input type="text" placeholder="Dinero a Apostar (Cuota Específica)" class="form-control"
+                               id="dineroApostarCuotaEspecifica"
+                               required>
+                    </div>
+                    <div class="mb-3 p-0 ps-md-1 col-xs-12 col-md-6">
+                        <input type="text" placeholder="Cuota" class="form-control"
+                               id="cuotaEspecifica"
+                               required>
+                    </div>
                 </div>
             </div>
 
-        </div>
-        <input type="button" onclick="calcular_apuesta_cuota_especifica()" class="btn btn-primary" value="Calcular">
-    </form>
+            <input type="button" onclick="calcular_apuesta_cuota_especifica()" class="btn btn-primary" value="Calcular">
+        </form>
+    </div>
 </div>
 
-<div id="resultado" class="m-3">
+<div id="resultado" class="container">
 
 </div>
 
