@@ -2,6 +2,7 @@ const resultadoBanner = document.getElementById('resultado');
 const formularios = getFormularios()
 
 let errorMsgProbGreater1 = "No hay oportunidad de ganancias. La suma de las probabilidades es mayor o igual a 1. <br>";
+
 function mostrarFormulario() {
     defaultActionFormularios()
     showFormularios(formularios)
@@ -12,9 +13,9 @@ function getFormularios() {
     let formEspecifica = "formularioCuotaEspecifica";
 
     return {
-        "1": { show: formTotal, hide: formEspecifica },
-        "2": { show: formEspecifica, hide: formTotal },
-        default: { hide: [formEspecifica, formTotal] }
+        "1": {show: formTotal, hide: formEspecifica},
+        "2": {show: formEspecifica, hide: formTotal},
+        default: {hide: [formEspecifica, formTotal]}
     };
 }
 
@@ -63,7 +64,7 @@ function calcular_apuesta_cantidad_total() {
 }
 
 function isBetViable(sumaProbabilidades) {
-    return sumaProbabilidades < 1
+    return sumaProbabilidades > 1
 }
 
 function calcular_apuesta_cuota_especifica() {
@@ -85,12 +86,12 @@ function calcular_apuesta_cuota_especifica() {
         const dineroTotalApostar = (dineroApostarCuotaEspecifica * sumaProbabilidades * cuotaEspecifica);
         const cantidadesApostar = probabilidades.map(probabilidad => (dineroTotalApostar * probabilidad) / sumaProbabilidades);
 
+        const errorMsg = (errorMsgProbGreater1 + `La probabilidad es: ${sumaProbabilidades}`);
 
-        errorMsgProbGreater1 += `La probabilidad es: ${sumaProbabilidades}`;
 
         let arrayCuotaCantidad = getArrayCuotaCantidadApostar(cuotasArray, cantidadesApostar)
 
-        isBetViable(sumaProbabilidades) ? showError(errorMsgProbGreater1) : showResult(arrayCuotaCantidad, dineroTotalApostar);
+        isBetViable(sumaProbabilidades) ? showError(errorMsg) : showResult(arrayCuotaCantidad, dineroTotalApostar);
     } else {
         showError("La cuota especifica no esta indicada");
     }
@@ -101,7 +102,7 @@ function showResult(arrayCuotasCantidadApostar, dineroTotalApostar) {
     createAlert(arrayCuotasCantidadApostar, dineroTotalApostar, ganancias)
 }
 
-function getGanancias(arrayCuotasCantidadApostar,dineroTotalApostar){
+function getGanancias(arrayCuotasCantidadApostar, dineroTotalApostar) {
     const totalAmount = arrayCuotasCantidadApostar.reduce((total, item) => total + (item.cuota * item.cantidadApostar), 0);
     const averageAmountPerBet = totalAmount / arrayCuotasCantidadApostar.length;
     return averageAmountPerBet - dineroTotalApostar;
